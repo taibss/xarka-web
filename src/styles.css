@@ -1,0 +1,164 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-Variable.woff2") format("woff2-variations");
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-VariableItalic.woff2") format("woff2-variations");
+  font-weight: 200 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*
+ * Xarka design system — "engineered confidence".
+ * Ink on off-white paper, copper as the singular accent, mono for data.
+ * All colors in oklch. Copper is reserved for CTAs, metrics, and conversion moments.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --font-sans: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-steel: var(--steel);
+  --color-paper: var(--paper);
+  --color-paper-soft: var(--paper-soft);
+  --color-copper: var(--copper);
+  --color-copper-soft: var(--copper-soft);
+  --color-copper-deep: var(--copper-deep);
+  --color-hairline: var(--hairline);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Brand tokens */
+  --ink: oklch(0.18 0.01 60);            /* near-black warm */
+  --ink-soft: oklch(0.42 0.01 60);
+  --steel: oklch(0.42 0.06 246);           /* #33546F — body-secondary, lines */
+  --paper: oklch(0.985 0.005 85);        /* warm off-white */
+  --paper-soft: oklch(0.955 0.008 80);
+  --copper: oklch(0.62 0.13 55);         /* signature copper */
+  --copper-deep: oklch(0.52 0.13 50);
+  --copper-soft: oklch(0.92 0.04 60);
+  --hairline: oklch(0.88 0.008 70);
+
+  /* Shadcn mapping */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: oklch(1 0 0);
+  --card-foreground: var(--ink);
+  --popover: oklch(1 0 0);
+  --popover-foreground: var(--ink);
+  --primary: var(--copper);
+  --primary-foreground: var(--paper);
+  --secondary: var(--paper-soft);
+  --secondary-foreground: var(--ink);
+  --muted: var(--paper-soft);
+  --muted-foreground: var(--ink-soft);
+  --accent: var(--copper-soft);
+  --accent-foreground: var(--copper-deep);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: var(--paper);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--copper);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+  h1, h2, h3, h4 {
+    letter-spacing: -0.015em;
+  }
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@utility hairline {
+  border-color: var(--color-hairline);
+}
+
+@layer base {
+  .card-subtle {
+    box-shadow: 0 1px 3px 0 rgb(14 27 44 / 0.06), 0 1px 2px -1px rgb(14 27 44 / 0.05);
+  }
+  .card-bold {
+    box-shadow: 0 2px 8px 0 rgb(14 27 44 / 0.08), 0 8px 24px -4px rgb(14 27 44 / 0.12);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card-bold:hover {
+    box-shadow: 0 4px 12px 0 rgb(14 27 44 / 0.1), 0 12px 32px -4px rgb(14 27 44 / 0.16);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@utility animate-breathe {
+  animation: breathe 3s ease-in-out infinite;
+}
