@@ -7,10 +7,17 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { GlobalMotionProvider } from "../components/motion/GlobalMotionProvider";
+
+const BackgroundLayers = lazy(() =>
+  import("../components/motion/BackgroundLayers").then((m) => ({
+    default: m.BackgroundLayers,
+  })),
+);
 
 function NotFoundComponent() {
   return (
@@ -148,8 +155,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <GlobalMotionProvider>
+        <BackgroundLayers />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <div className="relative z-10">
+          <Outlet />
+        </div>
+      </GlobalMotionProvider>
     </QueryClientProvider>
   );
 }

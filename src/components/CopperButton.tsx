@@ -14,7 +14,7 @@ export function CopperButton({
   const styles =
     variant === "solid"
       ? "bg-copper text-paper hover:bg-copper-deep"
-      : "border border-ink text-ink hover:bg-ink hover:text-paper";
+      : "border border-white/20 text-white/70 hover:bg-white/10 hover:text-white";
 
   if (href.startsWith("/") && !href.startsWith("//")) {
     return (

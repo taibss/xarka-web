@@ -76,7 +76,7 @@ export function ScrollReveal({
           ))
         : childrenArray === null && (
             <div
-              className={`transition-[opacity,transform] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`flex flex-1 flex-col transition-[opacity,transform] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 visible
                   ? "opacity-100 translate-y-0 scale-100"
                   : "opacity-0 translate-y-6 scale-[0.98]"

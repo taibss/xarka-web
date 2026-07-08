@@ -129,7 +129,7 @@
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-ink-soft);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 @utility tabular {
@@ -142,14 +142,23 @@
 
 @layer base {
   .card-subtle {
-    box-shadow: 0 1px 3px 0 rgb(14 27 44 / 0.06), 0 1px 2px -1px rgb(14 27 44 / 0.05);
+    box-shadow:
+      0 1px 2px 0 rgba(0, 0, 0, 0.3),
+      0 2px 6px -1px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.03);
   }
   .card-bold {
-    box-shadow: 0 2px 8px 0 rgb(14 27 44 / 0.08), 0 8px 24px -4px rgb(14 27 44 / 0.12);
+    box-shadow:
+      0 2px 4px 0 rgba(0, 0, 0, 0.3),
+      0 8px 24px -4px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
     transition: box-shadow 0.2s ease, transform 0.2s ease;
   }
   .card-bold:hover {
-    box-shadow: 0 4px 12px 0 rgb(14 27 44 / 0.1), 0 12px 32px -4px rgb(14 27 44 / 0.16);
+    box-shadow:
+      0 4px 8px 0 rgba(0, 0, 0, 0.35),
+      0 16px 40px -4px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
     transform: translateY(-2px);
   }
 }
@@ -164,8 +173,23 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 64px;
-  background: linear-gradient(to bottom, var(--color-background), transparent);
+  height: 80px;
+  background: linear-gradient(to bottom, #060d15, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section-fade-top-light {
+  position: relative;
+}
+.section-fade-top-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, #F8F6F3, transparent);
   pointer-events: none;
   z-index: 1;
 }
@@ -174,12 +198,15 @@
 .card-hover {
   transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 0.22s ease;
+    border-color 0.22s ease,
+    background-color 0.22s ease;
 }
 .card-hover:hover {
   transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 4px 12px 0 rgb(14 27 44 / 0.1),
-    0 12px 32px -4px rgb(14 27 44 / 0.16);
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.3),
+    0 16px 40px -4px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
 }
 .card-hover .card-icon {
   transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
@@ -210,6 +237,132 @@
   50% { opacity: 0.4; }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @utility animate-breathe {
   animation: breathe 3s ease-in-out infinite;
+}
+
+@utility duration-220 {
+  transition-duration: 220ms;
+}
+
+@utility section-glow {
+  position: relative;
+}
+.section-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192, 103, 43, 0.12), transparent);
+  pointer-events: none;
+}
+
+/* ── Primary button glow ── */
+.bg-copper {
+  box-shadow: 0 2px 10px rgba(194, 108, 52, 0.18);
+  transition: all 220ms ease;
+}
+.bg-copper:hover {
+  box-shadow: 0 6px 20px rgba(194, 108, 52, 0.30);
+  transform: translateY(-2px);
+}
+
+/* ── Scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--copper), oklch(0.68 0.13 55));
+  z-index: 200;
+  pointer-events: none;
+}
+
+/* ── SVG line-draw animation ── */
+.draw-svg path,
+.draw-svg polygon,
+.draw-svg line,
+.draw-svg polyline,
+.draw-svg rect {
+  stroke-dasharray: var(--len, 600);
+  stroke-dashoffset: var(--len, 600);
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+}
+.draw-svg.draw-in path,
+.draw-svg.draw-in polygon,
+.draw-svg.draw-in line,
+.draw-svg.draw-in polyline,
+.draw-svg.draw-in rect {
+  stroke-dashoffset: 0;
+}
+
+/* ── Dark hero section ── */
+.hero-dark {
+  background:
+    radial-gradient(700px 700px at 70% 50%, rgba(194, 108, 52, 0.04) 0%, transparent 100%),
+    #060d15;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero-dark h1,
+.hero-dark h2,
+.hero-dark h3 {
+  color: #fff;
+}
+.hero-dark .label-mono {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Floating hex decorations ── */
+.floating-hex {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.4;
+  will-change: transform;
+}
+.floating-hex svg {
+  display: block;
+}
+
+/* ── Blueprint grid texture for dark sections ── */
+.gridbg {
+  background-image:
+    linear-gradient(rgba(51, 84, 111, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(51, 84, 111, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* ── Reduced motion: disable canvas, parallax, draw ── */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress {
+    display: none;
+  }
+  .floating-hex {
+    display: none;
+  }
+  .draw-svg path,
+  .draw-svg polygon,
+  .draw-svg line,
+  .draw-svg polyline,
+  .draw-svg rect {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    transition: none;
+  }
 }

@@ -4,6 +4,7 @@ import { SectionEyebrow } from "../components/SectionEyebrow";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { ScrollReveal } from "../components/ScrollReveal";
+import { ConstellationCanvas } from "../components/ConstellationCanvas";
 
 export const Route = createFileRoute("/insights")({
   head: () => ({
@@ -67,23 +68,24 @@ function InsightsPage() {
 
   const typeColors: Record<string, string> = {
     POV: "text-copper",
-    "Build note": "text-steel",
+    "Build note": "text-white/60",
     Benchmark: "text-copper-deep",
   };
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-[#060d15] text-white">
       <Nav />
       <main>
         {/* Hero */}
         <ScrollReveal>
-        <section className="border-b border-hairline">
+        <section className="hero-dark relative overflow-hidden border-b border-white/10">
+          <ConstellationCanvas sparse />
           <Container className="py-16 md:py-24">
             <SectionEyebrow index="01" label="Insights" />
-            <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight text-ink md:text-6xl">
+            <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight text-white md:text-6xl">
               From the front lines.
             </h1>
-            <p className="mt-6 max-w-2xl text-steel md:text-lg">
+            <p className="mt-6 max-w-2xl text-white/60 md:text-lg">
               POV essays, build notes, and benchmarks from the team building sovereign AI
               systems for Indian enterprise. No marketing fluff — just what we're learning.
             </p>
@@ -93,28 +95,28 @@ function InsightsPage() {
 
         {/* Posts */}
         <ScrollReveal>
-        <section className="border-b border-hairline bg-paper-soft">
+        <section className="border-b border-white/10 bg-white/5">
           <Container className="py-20 md:py-28">
             <div className="space-y-4">
               {posts.map((p) => (
                 <article
                   key={p.t}
-                  className={`group flex flex-col gap-4 rounded-sm border border-hairline bg-card card-subtle p-6 card-hover transition-colors hover:border-copper md:flex-row md:items-start md:p-8 ${
-                    p.type === "POV" ? "border-t-2 border-t-copper" : p.type === "Build note" ? "border-t-2 border-t-steel" : "border-t-2 border-t-ink"
+                  className={`group flex flex-col gap-4 rounded-sm border border-white/10 bg-white/5 card-subtle p-6 card-hover transition-colors hover:border-copper md:flex-row md:items-start md:p-8 ${
+                    p.type === "POV" ? "border-t-2 border-t-copper" : p.type === "Build note" ? "border-t-2 border-t-white/60" : "border-t-2 border-t-ink"
                   }`}
                 >
                   <div className="md:w-48 shrink-0">
-                    <div className={`label-mono ${typeColors[p.type] || "text-steel"}`}>
+                    <div className={`label-mono ${typeColors[p.type] || "text-white/60"}`}>
                       {p.type}
                     </div>
-                    <div className="label-mono mt-2 text-steel">{p.date}</div>
-                    <div className="label-mono text-steel">{p.readTime}</div>
+                    <div className="label-mono mt-2 text-white/60">{p.date}</div>
+                    <div className="label-mono text-white/60">{p.readTime}</div>
                   </div>
                   <div className="flex-1">
-                    <h2 className="font-serif text-xl text-ink group-hover:text-copper transition-colors md:text-2xl">
+                    <h2 className="font-serif text-xl text-white group-hover:text-copper transition-colors md:text-2xl">
                       {p.t}
                     </h2>
-                    <p className="mt-2 text-sm text-steel md:text-base">{p.d}</p>
+                    <p className="mt-2 text-sm text-white/60 md:text-base">{p.d}</p>
                     <a
                       href="#"
                       className="label-mono mt-4 inline-flex items-center gap-2 text-copper hover:text-copper-deep"
@@ -131,19 +133,19 @@ function InsightsPage() {
 
         {/* CTA */}
         <ScrollReveal>
-        <section className="border-b border-hairline bg-ink text-paper">
+        <section className="border-b border-white/10 bg-ink text-white">
           <Container className="py-24 md:py-32">
             <h2 className="max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight md:text-6xl">
               Want to discuss what you read?
             </h2>
-            <p className="mt-6 max-w-2xl text-paper/70 md:text-lg">
+            <p className="mt-6 max-w-2xl text-white/70 md:text-lg">
               Book a 30-minute briefing. We will map your data sources, deployment constraints,
               compliance needs, and the first workflow Xarka can take from knowledge to action.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-sm bg-copper px-6 py-3.5 text-sm font-medium text-paper hover:bg-copper-deep transition-colors"
+                className="inline-flex items-center gap-2 rounded-sm bg-copper px-6 py-3.5 text-sm font-medium text-white hover:bg-copper-deep transition-colors"
               >
                 Book a briefing <span aria-hidden>→</span>
               </a>

@@ -4,6 +4,7 @@ import { SectionEyebrow } from "../components/SectionEyebrow";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { ScrollReveal } from "../components/ScrollReveal";
+import { ConstellationCanvas } from "../components/ConstellationCanvas";
 
 export const Route = createFileRoute("/trust")({
   head: () => ({
@@ -55,18 +56,19 @@ function TrustPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-[#060d15] text-white">
       <Nav />
       <main>
         {/* Hero */}
         <ScrollReveal>
-        <section className="border-b border-hairline">
+        <section className="hero-dark relative overflow-hidden border-b border-white/10">
+          <ConstellationCanvas sparse />
           <Container className="py-16 md:py-24">
             <SectionEyebrow index="01" label="Trust" />
-            <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight text-ink md:text-6xl">
+            <h1 className="mt-6 max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight text-white md:text-6xl">
               Compliance is our default, not an add-on.
             </h1>
-            <p className="mt-6 max-w-2xl text-steel md:text-lg">
+            <p className="mt-6 max-w-2xl text-white/60 md:text-lg">
               Xarka is built for regulated environments. Security, auditability, and data sovereignty
               are foundational to every deployment.
             </p>
@@ -76,17 +78,17 @@ function TrustPage() {
 
         {/* Certifications */}
         <ScrollReveal>
-        <section className="border-b border-hairline bg-paper-soft">
+        <section className="border-b border-white/10 bg-white/5">
           <Container className="py-20 md:py-28">
             <SectionEyebrow index="02" label="Certifications" />
-            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
+            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-white md:text-5xl">
               Certifications
             </h2>
             <div className="mt-12 grid gap-4 md:grid-cols-3 lg:grid-cols-5">
               {certifications.map((c) => (
-                 <div key={c.name} className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center card-hover">
-                  <div className="font-serif text-xl text-ink">{c.name}</div>
-                  <p className="mt-2 text-xs text-steel">{c.desc}</p>
+                 <div key={c.name} className="rounded-sm border border-white/10 bg-white/5 card-subtle p-6 text-center card-hover">
+                  <div className="font-serif text-xl text-white">{c.name}</div>
+                  <p className="mt-2 text-xs text-white/60">{c.desc}</p>
                 </div>
               ))}
             </div>
@@ -96,24 +98,24 @@ function TrustPage() {
 
         {/* Data handling policy */}
         <ScrollReveal>
-        <section className="border-b border-hairline">
+        <section className="border-b border-white/10">
           <Container className="py-20 md:py-28">
             <SectionEyebrow index="03" label="Data policy" />
-            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
+            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-white md:text-5xl">
               Data handling policy
             </h2>
-            <div className="mt-12 max-w-2xl space-y-4 text-steel md:text-lg">
+            <div className="mt-12 max-w-2xl space-y-4 text-white/60 md:text-lg">
               <p>
-                <strong className="text-ink">No client-data training.</strong> Your data is never used to train or fine-tune Xarka's models.
+                <strong className="text-white">No client-data training.</strong> Your data is never used to train or fine-tune Xarka's models.
               </p>
               <p>
-                <strong className="text-ink">Residency options.</strong> Choose where your data lives — on-prem, sovereign cloud, or specific Indian data centers.
+                <strong className="text-white">Residency options.</strong> Choose where your data lives — on-prem, sovereign cloud, or specific Indian data centers.
               </p>
               <p>
-                <strong className="text-ink">Retention control.</strong> You define how long data is retained and when it is deleted.
+                <strong className="text-white">Retention control.</strong> You define how long data is retained and when it is deleted.
               </p>
               <p>
-                <strong className="text-ink">Audit trails.</strong> Every action is logged and traceable for compliance review.
+                <strong className="text-white">Audit trails.</strong> Every action is logged and traceable for compliance review.
               </p>
             </div>
           </Container>
@@ -122,17 +124,17 @@ function TrustPage() {
 
         {/* Deployment models */}
         <ScrollReveal>
-        <section className="border-b border-hairline bg-paper-soft">
+        <section className="border-b border-white/10 bg-white/5">
           <Container className="py-20 md:py-28">
             <SectionEyebrow index="04" label="Deployment" />
-            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
+            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-white md:text-5xl">
               Deployment architectures
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {deploymentModes.map((m) => (
-                 <div key={m.t} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
-                   <h3 className="font-serif text-xl text-ink">{m.t}</h3>
-                  <p className="mt-3 text-sm text-steel">{m.d}</p>
+                 <div key={m.t} className="rounded-sm border border-white/10 bg-white/5 card-subtle p-8 card-hover">
+                   <h3 className="font-serif text-xl text-white">{m.t}</h3>
+                  <p className="mt-3 text-sm text-white/60">{m.d}</p>
                 </div>
               ))}
             </div>
@@ -142,15 +144,15 @@ function TrustPage() {
 
         {/* Governance controls */}
         <ScrollReveal>
-        <section className="border-b border-hairline">
+        <section className="border-b border-white/10">
           <Container className="py-20 md:py-28">
             <SectionEyebrow index="05" label="Governance" />
-            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
+            <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-white md:text-5xl">
               Governance controls
             </h2>
             <div className="mt-12 flex flex-wrap gap-3">
               {governance.map((g) => (
-                 <div key={g} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-mono text-sm text-ink card-hover">
+                 <div key={g} className="rounded-sm border border-white/10 bg-white/5 card-subtle px-5 py-3 font-mono text-sm text-white card-hover">
                   {g}
                 </div>
               ))}
@@ -161,19 +163,19 @@ function TrustPage() {
 
         {/* Security brief CTA */}
         <ScrollReveal>
-        <section className="border-b border-hairline bg-ink text-paper">
+        <section className="border-b border-white/10 bg-ink text-white">
           <Container className="py-24 md:py-32">
             <h2 className="max-w-4xl font-serif text-4xl leading-[1.05] tracking-tight md:text-6xl">
               Request our security overview
             </h2>
-            <p className="mt-6 max-w-2xl text-paper/70 md:text-lg">
+            <p className="mt-6 max-w-2xl text-white/70 md:text-lg">
               Download our security one-pager or talk to our security team about your specific
               requirements, compliance constraints, and deployment architecture.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 rounded-sm bg-copper px-6 py-3.5 text-sm font-medium text-paper hover:bg-copper-deep transition-colors"
+                className="inline-flex items-center gap-2 rounded-sm bg-copper px-6 py-3.5 text-sm font-medium text-white hover:bg-copper-deep transition-colors"
               >
                 Request security brief <span aria-hidden>→</span>
               </a>
