@@ -91,7 +91,7 @@ function ResourcesPage() {
           <Container className="py-20 md:py-28">
             <div className="space-y-4">
               {resources.map((r) => (
-                <div key={r.t} className="flex items-start justify-between gap-6 rounded-sm border border-hairline bg-card card-subtle p-6 transition-colors hover:border-copper md:p-8">
+                 <div key={r.t} className="flex items-start justify-between gap-6 rounded-sm border border-hairline bg-card card-subtle p-6 card-hover transition-colors hover:border-copper md:p-8">
                   <div className="flex-1">
                     <div className="flex items-center gap-3">
                       <h3 className="font-serif text-lg text-ink">{r.t}</h3>

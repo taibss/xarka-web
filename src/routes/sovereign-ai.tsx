@@ -98,7 +98,7 @@ function SovereignAIPage() {
             </p>
             <div className="mt-12 grid gap-4 md:grid-cols-2">
               {reasons.map((r) => (
-                <div key={r} className="flex items-start gap-3 rounded-sm border border-hairline bg-card card-subtle p-5">
+                 <div key={r} className="flex items-start gap-3 rounded-sm border border-hairline bg-card card-subtle p-5 card-hover">
                   <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-copper" />
                   <span className="text-sm text-ink">{r}</span>
                 </div>
@@ -120,15 +120,15 @@ function SovereignAIPage() {
               {deploymentModes.map((m) => {
                 const isFeatured = m.t === "Air-gapped";
                 return (
-                  <div
-                    key={m.t}
-                    className={`rounded-sm p-8 transition-all ${
-                      isFeatured
-                        ? "border border-copper/30 bg-ink text-paper md:col-span-2 md:p-10 hover:border-copper"
-                        : "border border-hairline bg-card card-subtle"
-                    }`}
-                  >
-                    <m.icon className={`${isFeatured ? "h-10 w-10" : "h-8 w-8"} text-copper`} />
+                   <div
+                     key={m.t}
+                     className={`rounded-sm p-8 card-hover ${
+                       isFeatured
+                         ? "border border-copper/30 bg-ink text-paper md:col-span-2 md:p-10 hover:border-copper"
+                         : "border border-hairline bg-card card-subtle"
+                     }`}
+                   >
+                     <m.icon className={`card-icon ${isFeatured ? "h-10 w-10" : "h-8 w-8"} text-copper`} />
                     <h3 className={`mt-4 font-serif ${isFeatured ? "text-3xl" : "text-2xl text-ink"}`}>{m.t}</h3>
                     <p className={`mt-3 text-sm ${isFeatured ? "text-paper/70 lg:text-base" : "text-steel"}`}>{m.d}</p>
                   </div>
@@ -156,16 +156,16 @@ function SovereignAIPage() {
               workflows, infrastructure, and runbooks after handover.
             </p>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
-              <div className="rounded-sm border border-paper/15 p-6">
-                <div className="label-mono text-copper">Build</div>
+               <div className="rounded-sm border border-paper/15 p-6 card-hover">
+                 <div className="label-mono text-copper">Build</div>
                 <p className="mt-2 text-sm text-paper/70">Architecture · Models · Workflows · Integrations</p>
               </div>
-              <div className="rounded-sm border border-paper/15 p-6">
-                <div className="label-mono text-copper">Operate</div>
+               <div className="rounded-sm border border-paper/15 p-6 card-hover">
+                 <div className="label-mono text-copper">Operate</div>
                 <p className="mt-2 text-sm text-paper/70">Monitoring · Drift checks · Retraining · Support</p>
               </div>
-              <div className="rounded-sm border border-paper/15 p-6">
-                <div className="label-mono text-copper">Transfer</div>
+               <div className="rounded-sm border border-paper/15 p-6 card-hover">
+                 <div className="label-mono text-copper">Transfer</div>
                 <p className="mt-2 text-sm text-paper/70">Runbooks · Workshops · IP assignment · Client ownership</p>
               </div>
             </div>
@@ -183,7 +183,7 @@ function SovereignAIPage() {
             </h2>
             <div className="mt-12 flex flex-wrap gap-3">
               {governance.map((g) => (
-                <div key={g} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-mono text-sm text-ink">
+                 <div key={g} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-mono text-sm text-ink card-hover">
                   {g}
                 </div>
               ))}

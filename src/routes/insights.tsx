@@ -99,7 +99,7 @@ function InsightsPage() {
               {posts.map((p) => (
                 <article
                   key={p.t}
-                  className={`group flex flex-col gap-4 rounded-sm border border-hairline bg-card card-subtle p-6 transition-colors hover:border-copper md:flex-row md:items-start md:p-8 ${
+                  className={`group flex flex-col gap-4 rounded-sm border border-hairline bg-card card-subtle p-6 card-hover transition-colors hover:border-copper md:flex-row md:items-start md:p-8 ${
                     p.type === "POV" ? "border-t-2 border-t-copper" : p.type === "Build note" ? "border-t-2 border-t-steel" : "border-t-2 border-t-ink"
                   }`}
                 >

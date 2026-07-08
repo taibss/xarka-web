@@ -7,6 +7,7 @@ import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { AnimatedCounter } from "../components/AnimatedCounter";
 import { ScrollReveal } from "../components/ScrollReveal";
+import { useParallax } from "../hooks/use-parallax";
 import {
   IconDocument,
   IconDrawing,
@@ -132,6 +133,7 @@ function HeroDiagram() {
 
 function Hero() {
   const chips = ["On-premise", "Air-gapped", "Customer-owned IP", "Audit-ready", "DPDP aligned", "Human-in-the-loop"];
+  const { ref: parallaxRef, style: parallaxStyle } = useParallax(16);
   return (
     <section className="relative overflow-hidden border-b border-hairline">
       <Container className="grid gap-12 py-16 md:grid-cols-2 md:py-24">
@@ -173,7 +175,7 @@ function Hero() {
             </div>
           </div>
         </div>
-        <div className="md:pl-6">
+        <div className="md:pl-6" ref={parallaxRef} style={parallaxStyle}>
           <HeroDiagram />
         </div>
       </Container>
@@ -205,7 +207,7 @@ function Problem() {
         </p>
         <div className="mt-12 grid gap-px overflow-hidden rounded-sm border border-hairline bg-hairline md:grid-cols-5">
           {cards.map((c, i) => (
-            <div key={c.t} className="bg-card p-6">
+            <div key={c.t} className="bg-card p-6 card-hover">
               <div className="label-mono text-copper">0{i + 1}</div>
               <div className="mt-3 font-serif text-xl text-ink">{c.t}</div>
               <p className="mt-2 text-sm text-steel">{c.d}</p>
@@ -250,7 +252,7 @@ function PlatformStack() {
       <div className="space-y-3">
         {layers.map((l, i) => (
           <div key={l.name} className="group">
-            <div className="grid grid-cols-[1fr_2fr] items-center gap-4 rounded-sm border border-hairline bg-paper px-4 py-4 transition-colors hover:border-copper md:gap-8 md:px-6">
+            <div className="grid grid-cols-[1fr_2fr] items-center gap-4 rounded-sm border border-hairline bg-paper px-4 py-4 transition-colors hover:border-copper card-hover md:gap-8 md:px-6">
               <div className="flex items-center gap-3">
                 <span className="label-mono w-6 text-copper">0{i + 1}</span>
                 <span className="font-serif text-lg text-ink md:text-xl">{l.name}</span>
@@ -373,7 +375,7 @@ function Capabilities() {
     },
   ];
   return (
-    <section className="border-b border-hairline">
+    <section className="border-b border-hairline section-fade-top">
       <Container className="py-20 md:py-28">
         <SectionEyebrow index="04" label="Capabilities" />
         <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
@@ -386,7 +388,7 @@ function Capabilities() {
             return (
               <article
                 key={it.t}
-                className={`group flex flex-col justify-between rounded-sm p-8 transition-all ${
+                className={`group flex flex-col justify-between rounded-sm p-8 card-hover ${
                   isHero
                     ? "border border-copper/30 bg-ink text-paper md:-order-1 md:col-span-2 lg:col-span-2 lg:row-span-2 lg:p-12 hover:border-copper"
                     : "border border-hairline border-l-2 border-l-copper/30 bg-card card-subtle hover:border-l-copper hover:bg-paper-soft"
@@ -394,7 +396,7 @@ function Capabilities() {
               >
                 <div>
                   <div className="flex items-center gap-3">
-                    {Icon && <Icon className={`${isHero ? "h-6 w-6" : "h-5 w-5"} text-copper`} />}
+                    {Icon && <Icon className={`card-icon ${isHero ? "h-6 w-6" : "h-5 w-5"} text-copper`} />}
                     <div className="label-mono text-copper">0{i + 1}</div>
                   </div>
                   <h3 className={`mt-4 font-serif ${isHero ? "text-3xl lg:text-4xl" : "text-2xl text-ink"}`}>{it.t}</h3>
@@ -465,7 +467,7 @@ function Deployment() {
         <div className="mt-12 grid items-stretch gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr]">
           {models.map((m, i) => (
             <div key={m.tag} className="contents">
-              <div className="flex flex-col rounded-sm border border-hairline bg-card card-subtle p-6 transition-colors hover:border-copper md:p-8">
+              <div className="flex flex-col rounded-sm border border-hairline bg-card card-subtle p-6 card-hover transition-colors hover:border-copper md:p-8">
                 <div className="label-mono flex items-center justify-between">
                   <span>{m.tag}</span>
                   <span className="rounded-sm border border-hairline px-2 py-0.5 text-[10px] text-steel">
@@ -627,7 +629,7 @@ function Industries() {
             return (
               <article
                 key={r.t}
-                className={`group flex flex-col justify-between rounded-sm p-8 transition-all ${
+                className={`group flex flex-col justify-between rounded-sm p-8 card-hover ${
                   isFeatured
                     ? "border border-copper/30 bg-ink text-paper md:-order-1 md:col-span-2 lg:col-span-2 lg:row-span-2 lg:p-12 hover:border-copper"
                     : "border border-hairline border-l-2 border-l-copper/30 bg-card card-subtle hover:border-l-copper hover:bg-paper"
@@ -635,7 +637,7 @@ function Industries() {
               >
                 <div>
                   <div className="flex items-center gap-2">
-                    {Icon && <Icon className={`${isFeatured ? "h-6 w-6" : "h-4 w-4"} text-copper`} />}
+                    {Icon && <Icon className={`card-icon ${isFeatured ? "h-6 w-6" : "h-4 w-4"} text-copper`} />}
                     <div className={`label-mono ${isFeatured ? "text-copper" : ""}`}>{r.k}</div>
                   </div>
                   <h3 className={`mt-3 font-serif ${isFeatured ? "text-3xl lg:text-4xl" : "text-2xl text-ink"}`}>{r.t}</h3>
@@ -713,7 +715,7 @@ function HowWeEngage() {
     },
   ];
   return (
-    <section className="border-b border-hairline bg-paper-soft">
+    <section className="border-b border-hairline bg-paper-soft section-fade-top">
       <Container className="py-20 md:py-28">
         <SectionEyebrow index="09" label="Engagement" />
         <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
@@ -722,7 +724,7 @@ function HowWeEngage() {
         <div className="mt-12 grid gap-6 items-center md:grid-cols-[1fr_auto_1fr_auto_1fr]">
           {steps.map((s, i) => (
             <React.Fragment key={s.n}>
-              <div className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center">
+                <div className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center card-hover">
                 <div className="label-mono text-copper">{s.n}</div>
                 <h3 className="mt-3 font-serif text-lg text-ink">{s.t}</h3>
                 <p className="mt-2 text-xs text-steel">{s.d}</p>
@@ -785,7 +787,7 @@ function Security() {
     "ISO 27001 / SOC 2",
   ];
   return (
-    <section id="resources" className="border-b border-hairline">
+    <section id="resources" className="border-b border-hairline section-fade-top">
       <Container className="py-20 md:py-28">
         <SectionEyebrow index="10" label="Security & Sovereignty" />
         <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
@@ -797,7 +799,7 @@ function Security() {
             return (
               <div
                 key={m.t}
-                className={`rounded-sm p-8 transition-all ${
+                className={`rounded-sm p-8 card-hover ${
                   isFeatured
                     ? "border border-copper/30 bg-ink text-paper md:col-span-2 md:row-span-1 md:p-10 hover:border-copper"
                     : "border border-hairline bg-card card-subtle"
@@ -863,7 +865,7 @@ function InsightsTeaser() {
             return (
               <article
                 key={p.t}
-                className={`rounded-sm border border-hairline border-t-4 ${topBorderColor[p.type] ?? "border-t-copper"} bg-card card-subtle p-8 transition-colors hover:border-copper hover:border-t-4 ${isFeatured ? "md:col-span-2 md:flex md:gap-8 md:p-10" : ""}`}
+                className={`rounded-sm border border-hairline border-t-4 ${topBorderColor[p.type] ?? "border-t-copper"} bg-card card-subtle p-8 card-hover transition-colors hover:border-copper hover:border-t-4 ${isFeatured ? "md:col-span-2 md:flex md:gap-8 md:p-10" : ""}`}
               >
                 <div className={isFeatured ? "flex-1" : ""}>
                   <div className="label-mono text-copper">{p.type}</div>
@@ -899,7 +901,7 @@ function Leadership() {
         </h2>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {team.map((t) => (
-            <div key={t.name} className="group rounded-sm border border-hairline bg-card card-subtle p-8 text-center transition-all hover:border-copper">
+            <div key={t.name} className="group rounded-sm border border-hairline bg-card card-subtle p-8 text-center card-hover transition-all hover:border-copper">
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink font-mono text-lg font-semibold text-paper transition-colors group-hover:bg-copper">
                 {t.initials}
               </div>

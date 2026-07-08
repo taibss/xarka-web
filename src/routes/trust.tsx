@@ -84,7 +84,7 @@ function TrustPage() {
             </h2>
             <div className="mt-12 grid gap-4 md:grid-cols-3 lg:grid-cols-5">
               {certifications.map((c) => (
-                <div key={c.name} className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center">
+                 <div key={c.name} className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center card-hover">
                   <div className="font-serif text-xl text-ink">{c.name}</div>
                   <p className="mt-2 text-xs text-steel">{c.desc}</p>
                 </div>
@@ -130,8 +130,8 @@ function TrustPage() {
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {deploymentModes.map((m) => (
-                <div key={m.t} className="rounded-sm border border-hairline bg-card card-subtle p-8">
-                  <h3 className="font-serif text-xl text-ink">{m.t}</h3>
+                 <div key={m.t} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
+                   <h3 className="font-serif text-xl text-ink">{m.t}</h3>
                   <p className="mt-3 text-sm text-steel">{m.d}</p>
                 </div>
               ))}
@@ -150,7 +150,7 @@ function TrustPage() {
             </h2>
             <div className="mt-12 flex flex-wrap gap-3">
               {governance.map((g) => (
-                <div key={g} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-mono text-sm text-ink">
+                 <div key={g} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-mono text-sm text-ink card-hover">
                   {g}
                 </div>
               ))}

@@ -160,8 +160,8 @@ function PlatformPage() {
             </p>
             <div className="mt-12 grid grid-cols-3 gap-4 md:grid-cols-5">
               {sources.map((s) => (
-                <div key={s.name} className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center">
-                  <s.icon className="mx-auto h-8 w-8 text-copper" />
+                <div key={s.name} className="rounded-sm border border-hairline bg-card card-subtle p-6 text-center card-hover">
+                  <s.icon className="card-icon mx-auto h-8 w-8 text-copper" />
                   <div className="mt-3 font-serif text-sm text-ink">{s.name}</div>
                 </div>
               ))}
@@ -183,7 +183,7 @@ function PlatformPage() {
             </p>
             <div className="mt-12 space-y-4">
               {loop.map((l, i) => (
-                <div key={l.stage} className="flex items-start gap-6 rounded-sm border border-hairline bg-card card-subtle p-6 transition-colors hover:border-copper">
+                <div key={l.stage} className="flex items-start gap-6 rounded-sm border border-hairline bg-card card-subtle p-6 card-hover transition-colors hover:border-copper">
                   <div className="label-mono w-8 text-copper">0{i + 1}</div>
                   <div className="flex-1">
                     <div className="font-serif text-xl text-ink">{l.stage}</div>
@@ -206,9 +206,9 @@ function PlatformPage() {
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {capabilities.map((c, i) => (
-                <article key={c.t} className="rounded-sm border border-l-2 border-l-copper/30 border-hairline bg-card card-subtle p-8 transition-all hover:border-l-copper">
-                  <div className="flex items-center gap-3">
-                    <c.icon className="h-5 w-5 text-copper" />
+                <article key={c.t} className="rounded-sm border border-l-2 border-l-copper/30 border-hairline bg-card card-subtle p-8 card-hover transition-all hover:border-l-copper">
+                   <div className="flex items-center gap-3">
+                     <c.icon className="card-icon h-5 w-5 text-copper" />
                     <div className="label-mono text-copper">0{i + 1}</div>
                   </div>
                   <h3 className="mt-4 font-serif text-2xl text-ink">{c.t}</h3>

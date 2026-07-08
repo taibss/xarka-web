@@ -104,11 +104,11 @@ function SolutionsPage() {
               {industries.map((ind, i) => {
                 const Icon = industryIcons[ind.t];
                 return (
-                  <article key={ind.t} className="rounded-sm border border-l-2 border-l-copper/30 border-hairline bg-card card-subtle p-8 transition-all hover:border-l-copper hover:border-copper">
-                    <div className="grid gap-8 md:grid-cols-[2fr_1fr]">
-                      <div>
-                        <div className="flex items-center gap-3">
-                          {Icon && <Icon className="h-5 w-5 text-copper" />}
+                   <article key={ind.t} className="rounded-sm border border-l-2 border-l-copper/30 border-hairline bg-card card-subtle p-8 card-hover transition-all hover:border-l-copper hover:border-copper">
+                     <div className="grid gap-8 md:grid-cols-[2fr_1fr]">
+                       <div>
+                         <div className="flex items-center gap-3">
+                           {Icon && <Icon className="card-icon h-5 w-5 text-copper" />}
                           <div className="label-mono text-copper">0{i + 1}</div>
                         </div>
                         <h2 className="mt-3 font-serif text-2xl text-ink md:text-3xl">{ind.t}</h2>

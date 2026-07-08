@@ -83,7 +83,7 @@ function LegalPage() {
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {useCases.map((uc) => (
-                <div key={uc.t} className="rounded-sm border border-hairline bg-card card-subtle p-8">
+                 <div key={uc.t} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
                   <h3 className="font-serif text-xl text-ink">{uc.t}</h3>
                   <p className="mt-3 text-sm text-steel">{uc.d}</p>
                 </div>
@@ -102,7 +102,7 @@ function LegalPage() {
             </h2>
             <div className="mt-12 flex flex-wrap gap-3">
               {outcomes.map((o) => (
-                <div key={o} className="rounded-sm border border-hairline bg-card card-subtle px-6 py-4 font-serif text-lg text-ink">
+                 <div key={o} className="rounded-sm border border-hairline bg-card card-subtle px-6 py-4 font-serif text-lg text-ink card-hover">
                   {o}
                 </div>
               ))}

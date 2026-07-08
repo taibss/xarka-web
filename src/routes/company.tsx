@@ -85,8 +85,8 @@ function CompanyPage() {
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {team.map((t) => (
-                <div key={t.name} className="rounded-sm border border-hairline bg-card card-subtle p-8">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper font-serif text-lg">
+               <div key={t.name} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
+                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper font-serif text-lg">
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <h3 className="mt-4 font-serif text-xl text-ink">{t.name}</h3>

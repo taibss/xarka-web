@@ -154,6 +154,57 @@
   }
 }
 
+/* ── Section transition gradients ── */
+.section-fade-top {
+  position: relative;
+}
+.section-fade-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: linear-gradient(to bottom, var(--color-background), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Card hover interaction ── */
+.card-hover {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.22s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 4px 12px 0 rgb(14 27 44 / 0.1),
+    0 12px 32px -4px rgb(14 27 44 / 0.16);
+}
+.card-hover .card-icon {
+  transition: transform 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.card-hover:hover .card-icon {
+  transform: scale(1.12);
+}
+
+/* ── Scroll reveal stagger ── */
+.scroll-reveal-child > * {
+  will-change: opacity, transform;
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @keyframes breathe {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }

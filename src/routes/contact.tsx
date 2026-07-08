@@ -49,7 +49,7 @@ function ContactPage() {
             <h2 className="mt-6 max-w-3xl font-serif text-3xl leading-tight text-ink md:text-5xl">
               Book a briefing
             </h2>
-            <div className="mt-12 rounded-sm border-2 border-dashed border-hairline bg-card p-12 md:p-20">
+             <div className="mt-12 rounded-sm border-2 border-dashed border-hairline bg-card p-12 card-hover md:p-20">
               <div className="flex flex-col items-center justify-center text-center">
                 <div className="label-mono text-copper">Scheduler</div>
                 <p className="mt-4 max-w-md font-serif text-xl text-ink">

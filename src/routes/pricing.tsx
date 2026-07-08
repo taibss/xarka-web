@@ -124,7 +124,7 @@ function PricingPage() {
               {tiers.map((t, i) => (
                 <div
                   key={t.name}
-                  className={`flex flex-col rounded-sm border bg-card card-subtle p-8 ${
+                  className={`flex flex-col rounded-sm border bg-card card-subtle p-8 card-hover ${
                     t.highlight
                       ? "border-copper ring-1 ring-copper/20"
                       : "border-hairline"
@@ -182,7 +182,7 @@ function PricingPage() {
                   desc: "You receive a detailed proposal with scope, timeline, deliverables, and a fixed price. No surprises.",
                 },
               ].map((s) => (
-                <div key={s.step} className="rounded-sm border border-hairline bg-card card-subtle p-8">
+                 <div key={s.step} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
                   <div className="label-mono text-copper">{s.step}</div>
                   <h3 className="mt-4 font-serif text-xl text-ink">{s.title}</h3>
                   <p className="mt-3 text-sm text-steel">{s.desc}</p>
@@ -203,7 +203,7 @@ function PricingPage() {
             </h2>
             <div className="mt-12 space-y-6">
               {faqs.map((f) => (
-                <div key={f.q} className="rounded-sm border border-hairline bg-card card-subtle p-6 md:p-8">
+                 <div key={f.q} className="rounded-sm border border-hairline bg-card card-subtle p-6 card-hover md:p-8">
                   <h3 className="font-serif text-lg text-ink">{f.q}</h3>
                   <p className="mt-3 text-sm text-steel">{f.a}</p>
                 </div>

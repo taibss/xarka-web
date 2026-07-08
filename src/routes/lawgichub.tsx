@@ -101,7 +101,7 @@ function LawgicHubPage() {
             </h2>
             <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {features.map((f) => (
-                <div key={f.t} className="rounded-sm border border-hairline bg-card card-subtle p-6">
+                <div key={f.t} className="rounded-sm border border-hairline bg-card card-subtle p-6 card-hover">
                   <h3 className="font-serif text-lg text-ink">{f.t}</h3>
                   <p className="mt-2 text-sm text-steel">{f.d}</p>
                 </div>
@@ -121,7 +121,7 @@ function LawgicHubPage() {
             </h2>
             <div className="mt-12 flex flex-wrap gap-3">
               {trustPoints.map((t) => (
-                <div key={t} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-serif text-ink">
+                <div key={t} className="rounded-sm border border-hairline bg-card card-subtle px-5 py-3 font-serif text-ink card-hover">
                   {t}
                 </div>
               ))}
@@ -140,7 +140,7 @@ function LawgicHubPage() {
             </h2>
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {personas.map((p) => (
-                <div key={p.title} className="rounded-sm border border-hairline bg-card card-subtle p-8">
+                <div key={p.title} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
                   <h3 className="font-serif text-2xl text-ink">{p.title}</h3>
                   <p className="mt-3 text-sm text-steel">{p.desc}</p>
                 </div>
@@ -164,7 +164,7 @@ function LawgicHubPage() {
               </div>
             </div>
             <div className="mt-12 grid items-stretch gap-6 md:grid-cols-2">
-              <div className="flex flex-col rounded-sm border border-hairline bg-card card-subtle p-8">
+              <div className="flex flex-col rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
                 <div className="label-mono text-copper">Live metrics</div>
                 <div className="mt-6 flex-1 grid grid-cols-2 gap-6 content-start">
                   <div>
@@ -185,7 +185,7 @@ function LawgicHubPage() {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col rounded-sm border border-hairline bg-card card-subtle p-8">
+              <div className="flex flex-col rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
                 <div className="label-mono text-copper">Certifications</div>
                 <div className="mt-4 font-mono text-sm text-ink">
                   ISO 27001 · ISO 42001 · SOC 2 · DPDP · GDPR
