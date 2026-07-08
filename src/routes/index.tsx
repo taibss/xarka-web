@@ -28,6 +28,7 @@ import {
   IconFactory,
   IconWrench,
   IconZap,
+  IconPeople,
 } from "../components/Icons";
 
 export const Route = createFileRoute("/")({
@@ -187,11 +188,11 @@ function Hero() {
 
 function Problem() {
   const cards = [
-    { t: "Documents", d: "Contracts, PDFs, reports, judgments, specifications." },
-    { t: "Cameras", d: "CCTV, site feeds, quality inspection, safety monitoring." },
-    { t: "Systems", d: "ERP, CRM, case management, asset management." },
-    { t: "Sensors", d: "IoT, equipment telemetry, environmental signals." },
-    { t: "Workflows", d: "Approvals, reports, alerts, audits, handovers." },
+    { t: "Documents", d: "Contracts, PDFs, reports, judgments, specifications.", icon: IconDocument },
+    { t: "Cameras", d: "CCTV, site feeds, quality inspection, safety monitoring.", icon: IconCamera },
+    { t: "Systems", d: "ERP, CRM, case management, asset management.", icon: IconDatabase },
+    { t: "Sensors", d: "IoT, equipment telemetry, environmental signals.", icon: IconSensor },
+    { t: "Workflows", d: "Approvals, reports, alerts, audits, handovers.", icon: IconWorkflow },
   ];
   return (
     <section className="border-b border-hairline bg-paper-soft">
@@ -208,8 +209,9 @@ function Problem() {
         <div className="mt-12 grid gap-px overflow-hidden rounded-sm border border-hairline bg-hairline md:grid-cols-5">
           {cards.map((c, i) => (
             <div key={c.t} className="bg-card p-6 card-hover">
-              <div className="label-mono text-copper">0{i + 1}</div>
-              <div className="mt-3 font-serif text-xl text-ink">{c.t}</div>
+              <c.icon className="card-icon h-6 w-6 text-copper" />
+              <div className="label-mono mt-3 text-copper">0{i + 1}</div>
+              <div className="mt-2 font-serif text-xl text-ink">{c.t}</div>
               <p className="mt-2 text-sm text-steel">{c.d}</p>
             </div>
           ))}
@@ -888,9 +890,9 @@ function InsightsTeaser() {
 
 function Leadership() {
   const team = [
-    { name: "Rajat Gupta", initials: "RG", role: "Systems & Product" },
-    { name: "Rishi Gupta", initials: "RG", role: "Commercial & Partnerships" },
-    { name: "Sharad Sankaran", initials: "SS", role: "Engineering & Architecture" },
+    { name: "Rajat Gupta", role: "Systems & Product" },
+    { name: "Rishi Gupta", role: "Commercial & Partnerships" },
+    { name: "Sharad Sankaran", role: "Engineering & Architecture" },
   ];
   return (
     <section className="border-b border-hairline">
@@ -902,8 +904,8 @@ function Leadership() {
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {team.map((t) => (
             <div key={t.name} className="group rounded-sm border border-hairline bg-card card-subtle p-8 text-center card-hover transition-all hover:border-copper">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink font-mono text-lg font-semibold text-paper transition-colors group-hover:bg-copper">
-                {t.initials}
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-ink transition-colors group-hover:bg-copper">
+                <IconPeople className="card-icon h-7 w-7 text-paper" />
               </div>
               <div className="mt-5 font-serif text-xl font-semibold text-ink">{t.name}</div>
               <div className="label-mono mt-2 text-copper">{t.role}</div>

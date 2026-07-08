@@ -7,7 +7,7 @@ export function Footer() {
       <Container className="grid gap-10 py-16 md:grid-cols-5">
         <div className="md:col-span-2">
           <Link to="/" className="flex items-center gap-2">
-            <span className="grid h-7 w-7 place-items-center rounded-sm bg-ink text-paper font-serif text-sm">X</span>
+            <img src="/xarka-icon-logo.png" alt="Xarka" className="h-7 w-7 rounded-sm" />
             <span className="font-semibold tracking-tight text-ink">Xarka</span>
           </Link>
           <p className="mt-4 max-w-sm text-sm text-steel">

@@ -4,6 +4,7 @@ import { SectionEyebrow } from "../components/SectionEyebrow";
 import { Nav } from "../components/Nav";
 import { Footer } from "../components/Footer";
 import { ScrollReveal } from "../components/ScrollReveal";
+import { IconPeople } from "../components/Icons";
 
 export const Route = createFileRoute("/company")({
   head: () => ({
@@ -86,9 +87,9 @@ function CompanyPage() {
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {team.map((t) => (
                <div key={t.name} className="rounded-sm border border-hairline bg-card card-subtle p-8 card-hover">
-                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper font-serif text-lg">
-                    {t.name.split(' ').map(n => n[0]).join('')}
-                  </div>
+                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink">
+                     <IconPeople className="card-icon h-6 w-6 text-paper" />
+                 </div>
                   <h3 className="mt-4 font-serif text-xl text-ink">{t.name}</h3>
                   <div className="label-mono mt-2 text-copper">{t.title}</div>
                   <p className="mt-4 text-sm text-steel">{t.bio}</p>

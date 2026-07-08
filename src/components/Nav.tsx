@@ -14,15 +14,15 @@ export function Nav() {
   ] as const;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-hairline bg-paper/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-7 w-7 place-items-center rounded-sm bg-ink text-paper font-serif text-sm">X</span>
-          <span className="font-semibold tracking-tight text-ink">Xarka</span>
+          <img src="/xarka-icon-logo.png" alt="Xarka" className="h-7 w-7 rounded-sm" />
+          <span className="font-semibold tracking-tight text-paper">Xarka</span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm text-steel md:flex">
+        <nav className="hidden items-center gap-8 text-sm text-paper/60 md:flex">
           {navLinks.map(([label, href]) => (
-            <Link key={label} to={href} className="hover:text-ink transition-colors">
+            <Link key={label} to={href} className="hover:text-paper transition-colors">
               {label}
             </Link>
           ))}
@@ -39,7 +39,7 @@ export function Nav() {
             className="flex h-8 w-8 items-center justify-center md:hidden"
             aria-label="Toggle menu"
           >
-            <svg className="h-5 w-5 text-ink" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="h-5 w-5 text-paper" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileOpen ? (
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
@@ -50,10 +50,10 @@ export function Nav() {
         </div>
       </Container>
       {mobileOpen && (
-        <div className="border-t border-hairline bg-paper px-6 py-4 md:hidden">
-          <nav className="flex flex-col gap-3 text-sm text-steel">
+        <div className="border-t border-white/10 bg-ink px-6 py-4 md:hidden">
+          <nav className="flex flex-col gap-3 text-sm text-paper/60">
             {navLinks.map(([label, href]) => (
-              <Link key={label} to={href} onClick={() => setMobileOpen(false)} className="hover:text-ink transition-colors">
+              <Link key={label} to={href} onClick={() => setMobileOpen(false)} className="hover:text-paper transition-colors">
                 {label}
               </Link>
             ))}
